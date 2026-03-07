@@ -10,6 +10,9 @@ with sync_playwright() as p:
 
     page.goto("https://tryhackme.com/login")
 
+    # انتظار ظهور الحقول
+    page.wait_for_selector('input[type="email"]', timeout=60000)
+
     page.fill('input[type="email"]', EMAIL)
     page.fill('input[type="password"]', PASSWORD)
 
